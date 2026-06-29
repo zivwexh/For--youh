@@ -1,209 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>For Youhh 🧸💗</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            background: radial-gradient(circle at 50% 30%, #fff0f5 0%, #fce4ec 50%, #f8bbd0 100%);
-            height: 100vh; overflow: hidden; position: fixed; width: 100%;
-            display: flex; justify-content: center; align-items: center;
-            font-family: 'Georgia', serif;
-        }
-        .hearts { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
-        .heart { position: absolute; font-size: 1.5rem; color: #e91e63; animation: fall linear infinite; opacity: 0; }
-        @keyframes fall { 
-            0% { transform: translateY(-10vh) rotate(0deg); opacity: 0; } 
-            10% { opacity: 0.95; } 
-            100% { transform: translateY(110vh) rotate(360deg); opacity: 0; } 
-        }
-        .container { position: relative; z-index: 10; text-align: center; }
-        .gift-box { 
-            width: 200px; height: 240px; margin: 0 auto; 
-            cursor: pointer; position: relative; 
-            filter: drop-shadow(0 15px 35px rgba(233, 30, 99, 0.35));
-        }
-        
-        /* PINK + GOLD BOX */
-        .box {
-            position: absolute; bottom: 0; width: 170px; height: 130px; 
-            background: linear-gradient(145deg, #f8bbd0, #f48fb1);
-            border: 3px solid #ffd700; 
-            left: 50%; transform: translateX(-50%);
-            z-index: 5; border-radius: 8px;
-            box-shadow: inset -5px -5px 15px rgba(0,0,0,0.1), 
-                        inset 5px 5px 15px rgba(255,255,255,0.5),
-                        0 0 25px rgba(255,215,0,0.5);
-        }
-        
-        /* GOLD RIBBON */
-        .ribbon-vertical {
-            position: absolute; bottom: 0; left: 50%; 
-            transform: translateX(-50%); width: 30px; height: 130px;
-            background: linear-gradient(90deg, #ffd700, #ffed4e, #ffd700);
-            z-index: 6; box-shadow: 0 0 18px rgba(255,215,0,0.8);
-        }
-        .ribbon-horizontal {
-            position: absolute; bottom: 52px; left: 50%; 
-            transform: translateX(-50%); width: 170px; height: 30px;
-            background: linear-gradient(180deg, #ffd700, #ffed4e, #ffd700);
-            z-index: 6; box-shadow: 0 0 18px rgba(255,215,0,0.8);
-        }
-        
-        /* LID + GOLD BOW */
-        .lid {
-            position: absolute; bottom: 127px; left: 50%;
-            transform: translateX(-50%);
-            width: 180px; height: 32px; 
-            background: linear-gradient(145deg, #fce4ec, #f8bbd0);
-            border: 3px solid #ffd700;
-            transition: all 1.1s cubic-bezier(0.68, -0.55, 0.265, 1.55); 
-            z-index: 7; border-radius: 8px;
-            box-shadow: inset -3px -3px 10px rgba(0,0,0,0.08),
-                        0 0 25px rgba(255,215,0,0.5);
-        }
-        
-        .bow-left, .bow-right {
-            position: absolute; bottom: 148px; width: 40px; height: 40px;
-            background: linear-gradient(135deg, #ffd700, #ffed4e);
-            border: 3px solid #ffa000; border-radius: 50% 50% 50% 0;
-            transition: all 1.1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            z-index: 8; box-shadow: 0 5px 18px rgba(255,215,0,0.7);
-        }
-        .bow-left { left: 50%; transform: translateX(-100%) rotate(-45deg); }
-        .bow-right { left: 50%; transform: rotate(45deg); }
-        .bow-knot {
-            position: absolute; bottom: 153px; left: 50%; 
-            transform: translateX(-50%); width: 24px; height: 24px;
-            background: linear-gradient(135deg, #ffed4e, #ffd700);
-            border: 3px solid #ffa000; border-radius: 50%;
-            transition: all 1.1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            z-index: 9; box-shadow: 0 4px 15px rgba(255,215,0,0.7);
-        }
-        
-        /* TEDDY + TEXT WRAPPER */
-        .teddy-wrap {
-            position: absolute; bottom: 15px; left: 50%; 
-            transform: translateX(-50%) scale(0.4); 
-            width: 140px; transition: all 1.3s cubic-bezier(0.68, -0.55, 0.265, 1.55); 
-            opacity: 0; z-index: 4;
-        }
-        
-        .teddy-img {
-            width: 100%;
-            filter: drop-shadow(0 12px 30px rgba(0,0,0,0.3));
-            display: block;
-        }
-        
-        /* TEXT - TEDDY HEAD NTE MUKALIL */
-        .love-text { 
-            position: absolute; top: -35px; left: 50%; 
-            transform: translateX(-50%); 
-            font-size: 1.4rem; color: #000; font-weight: bold; 
-            white-space: nowrap; letter-spacing: 0.5px;
-            text-shadow: 0 2px 10px rgba(255,255,255,0.8);
-        }
-        
-        /* OPEN ANIMATION */
-        .gift-box.open .lid { 
-            transform: translateX(-50%) translateY(-125px) rotateX(80deg); 
-        }
-        .gift-box.open .bow-left { 
-            transform: translateX(-100%) translateY(-125px) rotate(-45deg); 
-        }
-        .gift-box.open .bow-right { 
-            transform: translateY(-125px) rotate(45deg); 
-        }
-        .gift-box.open .bow-knot { 
-            transform: translateX(-50%) translateY(-125px); 
-        }
-        .gift-box.open .teddy-wrap { 
-            transform: translateX(-50%) scale(1) translateY(-140px); 
-            opacity: 1; animation: bounce 2s ease infinite; 
-        }
-        @keyframes bounce { 
-            0%, 100% { transform: translateX(-50%) scale(1) translateY(-140px); } 
-            50% { transform: translateX(-50%) scale(1.06) translateY(-150px); } 
-        }
-        
-        .tap-text { 
-            margin-top: 65px; font-size: 1.3rem; color: #c2185b; 
-            font-weight: bold; animation: pulse 2s infinite;
-            text-shadow: 0 3px 15px rgba(194,24,91,0.5);
-        }
-        @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.6; transform: scale(1.12); } }
-        
-        .music-btn { 
-            position: fixed; top: 20px; right: 20px; font-size: 2.4rem; 
-            background: white; width: 62px; height: 62px; border-radius: 50%; 
-            display: flex; align-items: center; justify-content: center; 
-            cursor: pointer; z-index: 20; 
-            box-shadow: 0 8px 22px rgba(0,0,0,0.3);
-            transition: all 0.3s ease; border: 3px solid #ffd700;
-        }
-        .music-btn:active { transform: scale(0.85); }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I luvv youhh 💗</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #0a0a0a;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Comic Sans MS', cursive;
+      overflow: hidden;
+    }
+    .container { text-align: center; z-index: 10; }
+    
+    /* PINK + GOLD LUXURY BOX */
+    .gift-box {
+      width: 200px;
+      height: 200px;
+      background: linear-gradient(145deg, #ff69b4, #ff1493);
+      border-radius: 12px;
+      position: relative;
+      margin: 0 auto 20px;
+      box-shadow: 
+        0 15px 35px rgba(255, 20, 147, 0.4),
+        inset 0 -8px 0 rgba(0,0,0,0.1),
+        inset 0 2px 0 rgba(255,255,255,0.3);
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .gift-box:hover { transform: scale(1.05); }
+    .gift-box::before {
+      content: '';
+      position: absolute;
+      width: 30px;
+      height: 200px;
+      background: linear-gradient(180deg, #ffd700, #ffb700, #ffd700);
+      left: 50%;
+      transform: translateX(-50%);
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+    }
+    .gift-box::after {
+      content: '';
+      position: absolute;
+      width: 200px;
+      height: 30px;
+      background: linear-gradient(90deg, #ffd700, #ffb700, #ffd700);
+      top: 50%;
+      transform: translateY(-50%);
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+    }
+    .gift-bow {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      background: radial-gradient(circle, #ffd700, #ffb700);
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      top: -25px;
+      left: 50%;
+      transform: translateX(-50%);
+      box-shadow: 0 5px 15px rgba(255, 215, 0, 0.5);
+      z-index: 10;
+    }
+    .gift-bow::before, .gift-bow::after {
+      content: '';
+      position: absolute;
+      width: 40px;
+      height: 50px;
+      background: #ffd700;
+      border-radius: 50%;
+      top: 5px;
+    }
+    .gift-bow::before { left: -20px; transform: rotate(-30deg); }
+    .gift-bow::after { right: -20px; transform: rotate(30deg); }
+    
+    .tap-text {
+      color: #ff69b4;
+      font-size: 18px;
+      margin-top: 10px;
+      animation: blink 1.5s infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+    
+    /* TEDDY REVEAL */
+    .surprise {
+      display: none;
+      animation: popIn 0.8s ease-out;
+    }
+    @keyframes popIn {
+      0% { transform: scale(0); opacity: 0; }
+      80% { transform: scale(1.1); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .teddy-img {
+      width: 180px;
+      height: 180px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 25px rgba(255,105,180,0.8));
+      margin-bottom: 15px;
+    }
+    .love-text {
+      font-size: 42px;
+      color: #ff69b4;
+      text-shadow: 0 0 20px #ff1493;
+      animation: glow 2s infinite alternate;
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 20px #ff1493; }
+      to { text-shadow: 0 0 35px #ff1493, 0 0 50px #ff69b4; }
+    }
+    
+    /* HEART MAZHA */
+    .heart {
+      position: fixed;
+      top: -10px;
+      color: #ff69b4;
+      animation: fall linear forwards;
+      z-index: 1;
+      pointer-events: none;
+    }
+    @keyframes fall { to { transform: translateY(110vh) rotate(360deg); opacity: 0; } }
+  </style>
 </head>
 <body>
-    <audio id="bgMusic" loop>
-        <source src="https://cdn.pixabay.com/download/audio/2022/08/02/audio_5b3d1f5c3a.mp3" type="audio/mpeg">
-    </audio>
-    <div class="music-btn" onclick="toggleMusic()">🔇</div>
-    <div class="hearts" id="hearts"></div>
-    <div class="container">
-        <div class="gift-box" onclick="openGift()">
-            <div class="teddy-wrap">
-                <div class="love-text">I luvv youhh</div>
-                <img src="https://i.ibb.co/4Zg2X8Q/teddy-heart.png" alt="teddy" class="teddy-img">
-            </div>
-            <div class="bow-knot"></div>
-            <div class="bow-left"></div>
-            <div class="bow-right"></div>
-            <div class="lid"></div>
-            <div class="ribbon-horizontal"></div>
-            <div class="ribbon-vertical"></div>
-            <div class="box"></div>
-        </div>
-        <div class="tap-text">Tap the gift Youhh 🎁</div>
+  <div class="container">
+    <div class="gift-box" onclick="openGift()">
+      <div class="gift-bow"></div>
     </div>
-    <script>
-        const hearts = document.getElementById('hearts');
-        const heartEmojis = ['💗', '💖', '💕', '💓', '💞', '💝', '💘', '❤️'];
-        let heartInterval;
-        
-        function createHeart() {
-            const heart = document.createElement('div');
-            heart.className = 'heart';
-            heart.innerHTML = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
-            heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.animationDuration = (Math.random() * 1.5 + 2) + 's';
-            heart.style.fontSize = (Math.random() * 1.2 + 1.3) + 'rem';
-            hearts.appendChild(heart);
-            setTimeout(() => heart.remove(), 4000);
-        }
-        
-        const giftBox = document.querySelector('.gift-box');
-        const bgMusic = document.getElementById('bgMusic');
-        const musicBtn = document.querySelector('.music-btn');
-        let opened = false;
-        
-        function openGift() {
-            if(!opened) {
-                giftBox.classList.add('open');
-                document.querySelector('.tap-text').style.opacity = '0';
-                bgMusic.play().catch(e => console.log('Click speaker icon to play'));
-                musicBtn.innerHTML = '🔊';
-                heartInterval = setInterval(createHeart, 65);
-                opened = true;
-            }
-        }
-        
-        function toggleMusic() {
-            if(bgMusic.paused) { bgMusic.play(); musicBtn.innerHTML = '🔊'; } 
-            else { bgMusic.pause(); musicBtn.innerHTML = '🔇'; }
-        }
-    </script>
+    <div class="tap-text">Tap the gift Youhh 💗</div>
+    
+    <div class="surprise" id="surprise">
+      <!-- NJAN THARUNNA WHITE TEDDY -->
+      <img src="https://i.ibb.co/6bQzX8Z/white-teddy-bear.png" alt="teddy" class="teddy-img">
+      <div class="love-text">I luvv youhh 💕</div>
+    </div>
+  </div>
+
+  <!-- PIANO MUSIC -->
+  <audio id="bgMusic" loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_2b1d8a8f7b.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    function openGift() {
+      document.querySelector('.gift-box').style.display = 'none';
+      document.querySelector('.tap-text').style.display = 'none';
+      document.getElementById('surprise').style.display = 'block';
+      document.getElementById('bgMusic').play();
+      startHeartMazha();
+    }
+    
+    // MAZHA POLE HEART
+    function startHeartMazha() {
+      setInterval(() => {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.innerHTML = '💗';
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.fontSize = Math.random() * 22 + 15 + 'px';
+        heart.style.animationDuration = Math.random() * 2 + 1 + 's';
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 3000);
+      }, 70); // ← Mazha speed
+    }
+  </script>
 </body>
     </html>
