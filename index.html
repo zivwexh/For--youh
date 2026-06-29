@@ -3,111 +3,68 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>I luvv youhh 💗</title>
+  <title>Tap the gift Youhh 💜</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      background: radial-gradient(circle at center, #1a0d2e, #0d0d15);
+      background: radial-gradient(circle at center, #1a0d2e, #0a0a15);
       height: 100vh; display: flex; justify-content: center; align-items: center;
-      font-family: 'Comic Sans MS', cursive; overflow: hidden;
+      font-family: 'Brush Script MT', cursive; overflow: hidden;
     }
     .container { text-align: center; z-index: 10; }
     
-    /* PURPLE WHITE DIAMOND BOX */
+    /* FLAT PURPLE BOX - NAMLDE COMBO */
     .gift-box {
-      width: 220px; height: 220px;
-      background: 
-        linear-gradient(135deg, #9370db 0%, #8a2be2 25%, #6a0dad 50%, #8a2be2 75%, #9370db 100%);
-      border-radius: 20px; position: relative; margin: 0 auto 20px;
-      cursor: pointer; transition: 0.5s;
+      width: 240px; height: 160px;
+      background: linear-gradient(145deg, #8b5cf6, #7c3aed);
+      border-radius: 15px; position: relative; margin: 0 auto 25px;
+      cursor: pointer; transition: 0.3s;
       box-shadow: 
-        0 25px 50px rgba(138, 43, 226, 0.6),
-        0 0 30px rgba(147, 112, 219, 0.4),
-        inset 0 -15px 0 rgba(0,0,0,0.2),
-        inset 0 4px 0 rgba(255,255,255,0.5);
-      transform: perspective(900px) rotateX(15deg) rotateY(-5deg);
+        0 0 40px rgba(139, 92, 246, 0.8),
+        0 0 80px rgba(139, 92, 246, 0.4),
+        0 12px 30px rgba(0,0,0,0.5);
     }
     .gift-box:hover { 
-      transform: perspective(900px) rotateX(15deg) rotateY(-5deg) scale(1.1) rotateZ(3deg);
+      transform: scale(1.03);
       box-shadow: 
-        0 35px 70px rgba(138, 43, 226, 0.8),
-        0 0 50px rgba(147, 112, 219, 0.6),
-        inset 0 -15px 0 rgba(0,0,0,0.2),
-        inset 0 4px 0 rgba(255,255,255,0.6);
+        0 0 60px rgba(139, 92, 246, 1),
+        0 0 100px rgba(139, 92, 246, 0.6),
+        0 18px 40px rgba(0,0,0,0.6);
     }
     
-    /* WHITE SILK RIBBON */
+    /* WHITE RIBBON - VERTICAL */
     .gift-box::before {
-      content: ''; position: absolute; width: 50px; height: 220px;
-      background: linear-gradient(180deg, #ffffff, #f5f5f5, #ffffff, #f5f5f5);
+      content: ''; position: absolute; width: 40px; height: 160px;
+      background: #ffffff;
       left: 50%; transform: translateX(-50%);
-      box-shadow: 
-        0 0 25px rgba(255, 255, 255, 0.9),
-        inset 3px 0 8px rgba(255,255,255,0.9),
-        inset -3px 0 8px rgba(0,0,0,0.1);
-      z-index: 2; border-radius: 5px;
-    }
-    .gift-box::after {
-      content: ''; position: absolute; width: 220px; height: 50px;
-      background: linear-gradient(90deg, #ffffff, #f5f5f5, #ffffff, #f5f5f5);
-      top: 50%; transform: translateY(-50%);
-      box-shadow: 
-        0 0 25px rgba(255, 255, 255, 0.9),
-        inset 0 3px 8px rgba(255,255,255,0.9),
-        inset 0 -3px 8px rgba(0,0,0,0.1);
-      z-index: 2; border-radius: 5px;
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.9);
+      z-index: 2; filter: blur(0.5px);
     }
     
-    /* WHITE SATIN BOW */
-    .gift-bow {
-      position: absolute; width: 100px; height: 100px;
-      top: -45px; left: 50%; transform: translateX(-50%); z-index: 10;
-    }
-    .gift-bow::before {
-      content: ''; position: absolute; width: 55px; height: 70px;
-      background: linear-gradient(135deg, #ffffff, #f8f8f8);
-      border-radius: 50% 30% 50% 30%; left: -2px; top: 15px;
-      transform: rotate(-40deg);
-      box-shadow: 
-        0 8px 20px rgba(255, 255, 255, 0.7),
-        inset 4px 4px 10px rgba(255,255,255,1),
-        inset -3px -3px 8px rgba(0,0,0,0.1);
-    }
-    .gift-bow::after {
-      content: ''; position: absolute; width: 55px; height: 70px;
-      background: linear-gradient(225deg, #ffffff, #f8f8f8);
-      border-radius: 30% 50% 30% 50%; right: -2px; top: 15px;
-      transform: rotate(40deg);
-      box-shadow: 
-        0 8px 20px rgba(255, 255, 255, 0.7),
-        inset 4px 4px 10px rgba(255,255,255,1),
-        inset -3px -3px 8px rgba(0,0,0,0.1);
-    }
-    .bow-center {
-      position: absolute; width: 25px; height: 25px;
-      background: radial-gradient(circle, #ffffff, #f0f0f0);
-      border-radius: 50%; top: 35px; left: 50%; transform: translateX(-50%);
-      box-shadow: 0 0 15px rgba(255, 255, 255, 1),
-        inset 2px 2px 5px rgba(255,255,255,1);
-      z-index: 11;
+    /* WHITE RIBBON - HORIZONTAL */
+    .gift-box::after {
+      content: ''; position: absolute; width: 240px; height: 40px;
+      background: #ffffff;
+      top: 50%; transform: translateY(-50%);
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.9);
+      z-index: 2; filter: blur(0.5px);
     }
     
     .tap-text {
-      color: #d8b4fe; font-size: 20px; margin-top: 15px;
-      animation: blink 1.5s infinite; font-weight: bold;
+      color: #c4b5fd; font-size: 24px; margin-top: 15px;
+      font-style: italic; text-shadow: 0 0 15px rgba(196, 181, 253, 0.8);
     }
-    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.4} }
     
     .surprise { display: none; animation: popIn 1s ease-out; }
     @keyframes popIn {
-      0% { transform: scale(0) rotate(-180deg); opacity: 0; }
-      70% { transform: scale(1.15) rotate(10deg); }
-      100% { transform: scale(1) rotate(0deg); opacity: 1; }
+      0% { transform: scale(0); opacity: 0; }
+      70% { transform: scale(1.1); }
+      100% { transform: scale(1); opacity: 1; }
     }
     
     .teddy {
       font-size: 160px; 
-      filter: drop-shadow(0 0 30px rgba(216, 180, 254, 0.9));
+      filter: drop-shadow(0 0 35px rgba(196, 181, 253, 0.9));
       margin-bottom: 20px;
       animation: float 3s ease-in-out infinite;
     }
@@ -128,16 +85,15 @@
       position: fixed; top: -10px; color: #ff69b4;
       animation: fall linear forwards; z-index: 1; pointer-events: none;
     }
-    @keyframes fall { to { transform: translateY(110vh) rotate(720deg); opacity: 0; } }
+    .heart::before { content: '💗'; font-size: inherit; }
+    .heart:nth-child(2n)::before { content: '💕'; }
+    .heart:nth-child(3n)::before { content: '💖'; }
+    @keyframes fall { to { transform: translateY(110vh) rotate(360deg); opacity: 0; } }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="gift-box" onclick="openGift()">
-      <div class="gift-bow">
-        <div class="bow-center"></div>
-      </div>
-    </div>
+    <div class="gift-box" onclick="openGift()"></div>
     <div class="tap-text">Tap the gift Youhh 💜</div>
     
     <div class="surprise" id="surprise">
@@ -146,9 +102,9 @@
     </div>
   </div>
 
-  <!-- PIANO ONLY -->
+  <!-- PRETTY LITTLE BABY - PIANO VERSION -->
   <audio id="bgMusic" loop>
-    <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3" type="audio/mpeg">
+    <source src="https://cdn.pixabay.com/download/audio/2023/05/04/audio_5591f6f2e3.mp3" type="audio/mpeg">
   </audio>
 
   <script>
@@ -160,19 +116,17 @@
       startHeartMazha();
     }
     
-    // PINK HEART MAZHA
     function startHeartMazha() {
       setInterval(() => {
         const heart = document.createElement('div');
         heart.className = 'heart';
-        heart.innerHTML = '💗'; // ← PINK HEART
         heart.style.left = Math.random() * 100 + 'vw';
-        heart.style.fontSize = Math.random() * 25 + 15 + 'px';
-        heart.style.animationDuration = Math.random() * 2 + 1.5 + 's';
+        heart.style.fontSize = Math.random() * 25 + 18 + 'px';
+        heart.style.animationDuration = Math.random() * 2 + 2 + 's';
         document.body.appendChild(heart);
-        setTimeout(() => heart.remove(), 3500);
-      }, 50); // Heavy mazha
+        setTimeout(() => heart.remove(), 4000);
+      }, 80);
     }
   </script>
 </body>
-</html>
+  </html>
